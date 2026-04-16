@@ -1,5 +1,5 @@
 ---
-name: meta-ads
+name: dalton-meta-ads
 description: Connect Meta Ads (Facebook/Instagram) to Dalton for ad-to-page personalization — landing pages that match the specific Meta campaign / ad set / ad a visitor clicked. Covers per-ad URL parameter setup (Meta does NOT support account-level tracking templates like Google does), connecting the Meta Ads account in Dalton, picking a personalization level, and generating personalized variants. Use this skill whenever someone asks about Meta / Facebook / Instagram Ads integration, ad personalization for Meta campaigns, tracking URL setup for Meta, or wiring Meta Ads into Dalton. Feature is Beta.
 ---
 
@@ -154,9 +154,9 @@ This integration touches a live ad spend account.
 ## When to hand off to another skill
 
 - Landing page isn't installed with Dalton → `dalton-script-install`
-- User wants cross-campaign reporting in GA4 → `google-analytics`
-- User wants Google Ads personalization too → `google-ads` (different tracking setup — account-level template)
-- Generated variants need tweaking → `editing-experiments`
+- User wants cross-campaign reporting in GA4 → `dalton-google-analytics`
+- User wants Google Ads personalization too → `dalton-google-ads` (different tracking setup — account-level template)
+- Generated variants need tweaking → `dalton-editing-experiments`
 - Integration connected but variants aren't serving → `dalton-help`
 
 ## Canonical sources

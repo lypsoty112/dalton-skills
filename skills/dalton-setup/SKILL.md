@@ -1,6 +1,6 @@
 ---
 name: dalton-setup
-description: Orchestrate end-to-end onboarding for a new Dalton user — install → goal → first experiment → pre-launch QA → launch. Use this skill whenever the user needs the *whole sequence* coordinated — "how do I set this up", "how do I onboard", "how do I launch my first experiment", "walk me through getting started", "I just signed up". This skill owns the sequence and hands off each phase to the narrower skill (`dalton-script-install`, `dalton-page-goals`, `creating-experiments`). If the user is in the middle of *one* phase and knows which (e.g. just configuring the goal, or just creating a variant), route directly to that skill instead.
+description: Orchestrate end-to-end onboarding for a new Dalton user — install → goal → first experiment → pre-launch QA → launch. Use this skill whenever the user needs the *whole sequence* coordinated — "how do I set this up", "how do I onboard", "how do I launch my first experiment", "walk me through getting started", "I just signed up". This skill owns the sequence and hands off each phase to the narrower skill (`dalton-script-install`, `dalton-page-goals`, `dalton-creating-experiments`). If the user is in the middle of *one* phase and knows which (e.g. just configuring the goal, or just creating a variant), route directly to that skill instead.
 ---
 
 # Dalton onboarding
@@ -14,7 +14,7 @@ Five phases. Don't skip or reorder; each depends on the previous.
 0. **Get your bearings** — find the customer_id, find (or add) the target page in the dashboard, capture the page_id.
 1. **Install the script** on at least one page where they want to experiment. (→ `dalton-script-install`)
 2. **Set the conversion goal** for that page. (→ `dalton-page-goals`)
-3. **Create the first experiment** — AI Insights, a template, or a prompt. (→ `creating-experiments` in `dalton-editor`)
+3. **Create the first experiment** — AI Insights, a template, or a prompt. (→ `dalton-creating-experiments` in `dalton-editor`)
 4. **Run the pre-launch QA checklist** and launch.
 
 Own the sequence. After each phase, confirm it's actually done (ideally by verifying with your browser tool, not just taking the user's word for it) before moving on.
@@ -76,7 +76,7 @@ Assume you have browser automation. Here's the end-to-end operator script:
 
 ### Phase 3 — first experiment
 
-1. Hand off to `creating-experiments` in the `dalton-editor` family.
+1. Hand off to `dalton-creating-experiments` in the `dalton-editor` family.
 2. For a first experiment, strongly recommend accepting **one** top-ICE-score Insight (not building from scratch). Easier to ship, and it gives the user an immediate "oh, that's neat" moment.
 3. Keep it to **one variant** on top of baseline for the first test. Multiple variants is fine once they've seen the loop end-to-end.
 
@@ -88,7 +88,7 @@ Walk the Before-You-Go-Live checklist. Don't skip any item:
 - [ ] **Mobile preview looks correct.** Resize the viewport (or open in a mobile emulator) and check the variant on mobile. AI often optimizes for whichever view was active when the prompt ran — mobile is the usual source of surprises.
 - [ ] **AI content is accurate.** Read every claim, number, and brand-sensitive phrase. If anything's inaccurate, have the user re-prompt before launch.
 - [ ] **Conversion goal fires where Dalton is installed.** If the goal is a thank-you page view, the Dalton snippet must be on that thank-you page too.
-- [ ] **(Multi-page only) Preview 3–5 URLs matching the pattern.** Handled by `creating-experiments` — but own the checkbox here.
+- [ ] **(Multi-page only) Preview 3–5 URLs matching the pattern.** Handled by `dalton-creating-experiments` — but own the checkbox here.
 
 Only after all five tick do you hit **Launch Experiments**.
 
@@ -104,7 +104,7 @@ After launch, set the user's expectations — this prevents panicked "is it work
 
 ## Manual walkthrough (fallback)
 
-If you don't have browser automation, coach the user through the same five phases in the same order, handing off to the narrower skills (`dalton-script-install`, `dalton-page-goals`, `creating-experiments`) at each step. Still own the sequence: after each phase, ask the user to confirm done (ideally with a screenshot) before moving on.
+If you don't have browser automation, coach the user through the same five phases in the same order, handing off to the narrower skills (`dalton-script-install`, `dalton-page-goals`, `dalton-creating-experiments`) at each step. Still own the sequence: after each phase, ask the user to confirm done (ideally with a screenshot) before moving on.
 
 ## Permission etiquette
 
@@ -135,11 +135,11 @@ Never launch an experiment live without the user explicitly saying "launch." The
 
 - Script install details and platform specifics → `dalton-script-install`
 - Conversion goal types and GA4 event wiring → `dalton-page-goals`
-- Variant creation, prompting, AI insights → `creating-experiments` (in `dalton-editor`)
+- Variant creation, prompting, AI insights → `dalton-creating-experiments` (in `dalton-editor`)
 - URL split tests for full redesigns → `dalton-split-tests`
 - "What is Dalton?" conceptual questions mid-onboarding → `dalton-info`
 - Onboarding is blocked by something breaking → `dalton-help`
-- After launch, user wants to wire GA4 audiences for cross-report analysis → `google-analytics` (in `dalton-integrations`)
+- After launch, user wants to wire GA4 audiences for cross-report analysis → `dalton-google-analytics` (in `dalton-integrations`)
 
 ## Canonical sources
 

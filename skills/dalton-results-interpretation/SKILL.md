@@ -1,5 +1,5 @@
 ---
-name: results-interpretation
+name: dalton-results-interpretation
 description: Interpret Dalton's Results Dashboard for a user — what lift, certainty, traffic split, learning phase, and High Performer status actually mean, and whether to wait, act, pause, or launch a follow-up. Use this skill when data is *flowing* but the user isn't sure what to do with it — "is this variant winning?", "are these results significant?", "why is the split still 50/50?", "should I stop?", "how long until I can trust the numbers?", "what does this lift mean?". If data is NOT flowing at all (zero sessions, dashboard empty, conversion goal silent), that's a setup/install problem — route to `dalton-help`. With browser automation, open the dashboard and read the numbers for them; without it, apply the three-phase + 95%-certainty rule to the numbers they report.
 ---
 
@@ -167,10 +167,10 @@ Reading results is read-only — low stakes. But:
 ## When to hand off to another skill
 
 - Dashboard shows zero data / issues with data flow → `dalton-help`
-- Numbers don't match GA4 and user wants to dig in → `google-analytics`
-- User wants to launch a follow-up experiment based on winning variant → `creating-experiments`
+- Numbers don't match GA4 and user wants to dig in → `dalton-google-analytics`
+- User wants to launch a follow-up experiment based on winning variant → `dalton-creating-experiments`
 - User wants to roll the winner to 100% traffic → this isn't a user-adjustable setting; explain that Dalton's algorithm shifts traffic automatically
-- Privacy/data-storage questions mid-conversation → `privacy-and-storage`
+- Privacy/data-storage questions mid-conversation → `dalton-privacy-and-storage`
 
 ## Canonical sources
 

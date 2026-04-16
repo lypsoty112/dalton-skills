@@ -1,6 +1,6 @@
 ---
 name: dalton-page-goals
-description: Choose and configure the conversion goal for a page or experiment in Dalton — pick among built-in goal types (CTR, click on element, click-to-path, add-to-cart, page view) or a GA4 event, set secondary metrics, then wire it up and verify it fires. Use this skill whenever someone is picking or changing what Dalton optimizes for — "what should I optimize for", "how do I set the conversion goal", "how do I track a form submit / signup / purchase", "my goal isn't firing", "how do I set a secondary metric". If they want to use a GA4 event but GA4 isn't connected, route to `google-analytics` first; this skill owns goal-type selection and Dalton-side configuration via the Page Settings panel.
+description: Choose and configure the conversion goal for a page or experiment in Dalton — pick among built-in goal types (CTR, click on element, click-to-path, add-to-cart, page view) or a GA4 event, set secondary metrics, then wire it up and verify it fires. Use this skill whenever someone is picking or changing what Dalton optimizes for — "what should I optimize for", "how do I set the conversion goal", "how do I track a form submit / signup / purchase", "my goal isn't firing", "how do I set a secondary metric". If they want to use a GA4 event but GA4 isn't connected, route to `dalton-google-analytics` first; this skill owns goal-type selection and Dalton-side configuration via the Page Settings panel.
 ---
 
 # Dalton conversion goals
@@ -73,7 +73,7 @@ Downstream = closer to revenue / the real business outcome.
    - **Click-on-element:** identify the element — ideally by clicking it in the visual selector, not a fragile CSS class. Prefer stable IDs, `aria-label`, or text content.
    - **Page view:** paste the exact URL path (e.g. `/thank-you`). Confirm Dalton is installed on that page too or the goal can't fire.
    - **Click-to-path:** paste the destination URL path.
-   - **GA4 event:** select from the dropdown populated by the GA4 connection. If GA4 isn't connected, route to `google-analytics` first.
+   - **GA4 event:** select from the dropdown populated by the GA4 connection. If GA4 isn't connected, route to `dalton-google-analytics` first.
 5. Optional — also set a **Secondary Metric** for visibility into a downstream signal.
 6. Save.
 
@@ -111,7 +111,7 @@ Users often pick a goal without thinking about whether it's measurable or downst
 ## When to hand off to another skill
 
 - Dalton snippet not installed on the goal page → `dalton-script-install`
-- GA4 event as a goal but GA4 isn't connected → `google-analytics` in `dalton-integrations`
+- GA4 event as a goal but GA4 isn't connected → `dalton-google-analytics` in `dalton-integrations`
 - Goal not firing after launch → `dalton-help`
 - Choosing between a single-page experiment and a URL split test → `dalton-split-tests`
 

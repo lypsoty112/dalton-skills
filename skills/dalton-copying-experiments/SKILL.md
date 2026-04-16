@@ -1,5 +1,5 @@
 ---
-name: copying-experiments
+name: dalton-copying-experiments
 description: Duplicate a Dalton experiment across multiple pages — either by copying a variant from one page to another, or by setting up a multi-page experiment with a URL wildcard so the same test runs on many pages at once (all PDPs, all category pages, all blog posts, etc.). Use this skill whenever someone asks to copy, duplicate, clone, replicate, or "apply this test everywhere" / "run on all product pages" / "use the same variant on page X". With browser automation, drive the multi-page flow at platform.getdalton.com; without it, coach them through wildcard patterns and the critical "elements must exist on all matched pages" rule.
 ---
 
@@ -18,7 +18,7 @@ Know which case the user is in before choosing how to help.
 https://platform.getdalton.com/admin/[customer_id]/page?page=[page_id]&tab=overview&edit=true
 ```
 
-Multi-page experiments live on a page entry that represents the *pattern*, not a single URL. When you set up a wildcard target, the resulting `[page_id]` covers the whole pattern. Full UI map: `../../references/platform-urls.md`.
+Multi-page experiments live on a page entry that represents the *pattern*, not a single URL. When you set up a wildcard target, the resulting `[page_id]` covers the whole pattern. Full UI map: `../references/platform-urls.md`.
 
 ## Which case is this?
 
@@ -86,7 +86,7 @@ Narrow conditions enough that they only catch pages where the test element genui
 2. **Define the targeting rules.** Use the natural language input if the pattern is simple. For complex cases (exclude a subdirectory, combine two path prefixes) use manual conditions. Test example URLs in the live test field before proceeding.
 3. **Navigate to the editor URL.** If the multi-page ruleset already exists as a page entry, open it directly. If not, add it via Add Page → Multiple Pages.
 4. **Select the target element.** Ideally use the visual editor on a representative matched URL. Avoid fragile selectors (build-hashed classes); prefer IDs, `aria-label`, or text content.
-5. **Create the variant** (→ hand off prompting details to `creating-experiments`).
+5. **Create the variant** (→ hand off prompting details to `dalton-creating-experiments`).
 6. **Preview on 3–5 different matching URLs.** This is non-negotiable. Open each in the browser tool and confirm: the element exists, the variant renders, desktop and mobile both look right.
 7. **If any matched page looks broken or the element is missing**, narrow the pattern or pick a different element. Don't launch.
 8. **Save. Launch only on explicit user confirmation.**
@@ -146,8 +146,8 @@ Multi-page experiments touch many live pages at once. Before launch:
 
 ## When to hand off to another skill
 
-- User hasn't created the source experiment yet → `creating-experiments`
-- User wants to tweak the copy after duplicating → `editing-experiments`
+- User hasn't created the source experiment yet → `dalton-creating-experiments`
+- User wants to tweak the copy after duplicating → `dalton-editing-experiments`
 - User actually wants to compare different full-page designs, not duplicate one test → `dalton-split-tests`
 - Something breaks on matched pages → `dalton-help`
 - User wants to set / change the shared conversion goal → `dalton-page-goals`

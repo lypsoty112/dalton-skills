@@ -1,6 +1,6 @@
 ---
 name: dalton-help
-description: Help a user troubleshoot a Dalton problem or reach Dalton support. Use this skill when something isn't *working* — "script not detected", "variants not showing", "no data in dashboard", "prompt errors", "preview looks weird", "mobile looks wrong", "how do I contact Dalton". If data IS flowing but the user just doesn't understand the numbers (what does lift mean, is this significant, should I act), route to `results-interpretation` instead. With browser automation, reproduce the symptom and apply the fix yourself; without it, coach the user. Triage first (what they see, where, what changed, what they've tried) before guessing at a fix.
+description: Help a user troubleshoot a Dalton problem or reach Dalton support. Use this skill when something isn't *working* — "script not detected", "variants not showing", "no data in dashboard", "prompt errors", "preview looks weird", "mobile looks wrong", "how do I contact Dalton". If data IS flowing but the user just doesn't understand the numbers (what does lift mean, is this significant, should I act), route to `dalton-results-interpretation` instead. With browser automation, reproduce the symptom and apply the fix yourself; without it, coach the user. Triage first (what they see, where, what changed, what they've tried) before guessing at a fix.
 ---
 
 # Dalton help & troubleshooting
@@ -124,7 +124,7 @@ Full URL / UI map in `skills/references/platform-urls.md`.
 - **GA4 / Google Ads / Meta Ads** wiring specifically → `dalton-integrations` skill family
 - **URL split tests** specifically → `dalton-split-tests`
 - **Defining or changing the conversion goal** → `dalton-page-goals`
-- **Interpreting live numbers** (data is flowing, user confused) → `results-interpretation`
+- **Interpreting live numbers** (data is flowing, user confused) → `dalton-results-interpretation`
 
 ## Canonical sources
 

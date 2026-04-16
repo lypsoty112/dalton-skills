@@ -1,5 +1,5 @@
 ---
-name: google-analytics
+name: dalton-google-analytics
 description: Connect Dalton to Google Analytics 4 and set up the two things that unlocks — (a) using GA4 events as Dalton conversion goals, and (b) creating Optimized-vs-Control audiences in GA4 so the user can compare Dalton's impact in any GA4 report. Use this skill whenever GA4 is involved — including "connect GA4", "use a GA4 event / purchase event / signup event as my goal", "how do I create the dalton audiences", "compare optimized vs control in GA4", "measure Dalton's overall lift". Covers the holdout group (default 20% control / 80% optimized, adjustable). If the user is deciding *which goal type* to pick (not GA4-specific), route to `dalton-page-goals` instead; this skill owns the GA4-side work once GA4 is the chosen goal source.
 ---
 
@@ -120,7 +120,7 @@ If you can't drive GA4:
 
 - User hasn't installed Dalton on the page whose events they want to track → `dalton-script-install`
 - User is specifically picking a goal type (not the GA4 connection itself) → `dalton-page-goals`
-- User wants ad-driven personalization, not analytics → `google-ads` or `meta-ads`
+- User wants ad-driven personalization, not analytics → `dalton-google-ads` or `dalton-meta-ads`
 - Integration is connected but data isn't flowing → `dalton-help`
 
 ## Canonical sources

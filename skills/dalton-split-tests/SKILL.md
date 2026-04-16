@@ -5,13 +5,13 @@ description: Configure a Dalton URL Split Test — comparing entirely different 
 
 # Dalton URL Split Tests
 
-Use this skill when the user wants to compare **entirely different pages**, not element-level changes on one page. URL Split Tests route traffic across multiple URLs and measure which converts best against a shared goal. Element-level experiments are a different skill (`creating-experiments`).
+Use this skill when the user wants to compare **entirely different pages**, not element-level changes on one page. URL Split Tests route traffic across multiple URLs and measure which converts best against a shared goal. Element-level experiments are a different skill (`dalton-creating-experiments`).
 
 ## When to use a URL Split Test vs. a regular experiment
 
 | Situation | Use |
 |---|---|
-| Change headline / CTA copy / move a section | **Regular experiment** (`creating-experiments`) |
+| Change headline / CTA copy / move a section | **Regular experiment** (`dalton-creating-experiments`) |
 | Test a hero image or video | **URL Split Test** (editor can't edit images) |
 | Compare two completely different page designs | **URL Split Test** |
 | Test a heavy redesign against the current page | **URL Split Test** |
@@ -61,7 +61,7 @@ Operator flow assuming browser automation and the user logged in.
 
 ### Step 0 — sanity check
 
-Make sure this really should be a URL Split Test. If they're just changing a headline, route to `creating-experiments`.
+Make sure this really should be a URL Split Test. If they're just changing a headline, route to `dalton-creating-experiments`.
 
 ### Step 1 — verify each URL
 
@@ -136,11 +136,11 @@ Split tests re-route live traffic to alternate URLs that the user built. Before 
 
 ## When to hand off to another skill
 
-- Changes are element-level, not whole-page → `creating-experiments`
+- Changes are element-level, not whole-page → `dalton-creating-experiments`
 - Snippet missing on one URL → `dalton-script-install`
 - Setting / changing the conversion goal → `dalton-page-goals`
-- Test is running but numbers look weird → `results-interpretation`
-- Multi-page experiments (same element change across many URLs via wildcard) is NOT a split test → use `copying-experiments`
+- Test is running but numbers look weird → `dalton-results-interpretation`
+- Multi-page experiments (same element change across many URLs via wildcard) is NOT a split test → use `dalton-copying-experiments`
 
 ## Canonical sources
 

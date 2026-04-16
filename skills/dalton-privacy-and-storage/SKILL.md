@@ -1,5 +1,5 @@
 ---
-name: privacy-and-storage
+name: dalton-privacy-and-storage
 description: Answer questions about Dalton's data handling — what data it collects, what it doesn't, where data is stored (EU / eu-central), how cookies work, GDPR/CCPA stance, the two cookies Dalton sets (dalton_session_[id], dalton_device), PII handling, and cookie-consent integration. Use this skill whenever someone asks about privacy, compliance, GDPR, CCPA, where data is stored, what Dalton tracks, PII, cookies, fingerprinting, data residency, the cookie banner, OneTrust integration, or whether Dalton is safe for EU users. Be precise and conservative — don't invent legal or compliance claims.
 ---
 
@@ -134,8 +134,8 @@ Legal-adjacent conversations deserve precision. Short, specific, factually-backe
 ## When to hand off to another skill
 
 - Dashboard "missing" sessions actually about cookie-rejection confusion → clarify here; deeper troubleshooting → `dalton-help`
-- User wants to understand the control/optimized holdout split (a settings question, not a privacy question) → `results-interpretation` explains the default 20/80 split
-- User asks about GA4 data handling (different system, different rules) → `google-analytics` for GA-specific questions; privacy of GA4 itself is Google's domain, not Dalton's
+- User wants to understand the control/optimized holdout split (a settings question, not a privacy question) → `dalton-results-interpretation` explains the default 20/80 split
+- User asks about GA4 data handling (different system, different rules) → `dalton-google-analytics` for GA-specific questions; privacy of GA4 itself is Google's domain, not Dalton's
 
 ## Canonical sources
 

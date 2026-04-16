@@ -1,5 +1,5 @@
 ---
-name: editing-experiments
+name: dalton-editing-experiments
 description: Revise an existing Dalton variant or experiment — re-prompt, tweak copy, fix a broken mobile layout, undo unwanted changes, adjust an approved variant before launch, or iterate on a generated variant that isn't quite right. Use this skill whenever someone wants to change, edit, tweak, adjust, fix, refine, or iterate on an existing variant rather than create a brand new one. Also use when the user says "that's not quite right, make it X" after a variant was generated. With browser automation, open the variant in the editor at platform.getdalton.com and apply the change; without it, coach them through the iteration loop.
 ---
 
@@ -13,7 +13,7 @@ Use this skill to iterate on a variant that already exists. Different problem th
 https://platform.getdalton.com/admin/[customer_id]/page?page=[page_id]&tab=overview&edit=true
 ```
 
-Navigate here to open the variant in edit mode. The left-panel **Experiments** list shows every experiment on the page with its status (**Live**, **Paused**, **Draft**) — click the one to revise. Full UI map: `../../references/platform-urls.md`.
+Navigate here to open the variant in edit mode. The left-panel **Experiments** list shows every experiment on the page with its status (**Live**, **Paused**, **Draft**) — click the one to revise. Full UI map: `../references/platform-urls.md`.
 
 ## The iteration loop
 
@@ -49,12 +49,12 @@ Ask the user (or deduce from the conversation) which of these applies — the ri
 | "Mobile is broken" | Re-prompt with `on mobile only`: "On mobile only, make the hero headline two lines max" |
 | "Wrong fact / claim" | Re-prompt with correct wording: "Replace 'free shipping on all orders' with 'free shipping over $50'" — flag that Brand Intelligence compliance rules could prevent this next time |
 | "Wrong element got changed" | Undo → re-select the correct element → re-prompt |
-| "It's fine but I want to try a different angle" | Keep existing variant, **create a new one** (→ `creating-experiments`) so you can A/B the angles |
-| "Totally off, start over" | Delete the variant, start a fresh prompt (→ `creating-experiments`) |
+| "It's fine but I want to try a different angle" | Keep existing variant, **create a new one** (→ `dalton-creating-experiments`) so you can A/B the angles |
+| "Totally off, start over" | Delete the variant, start a fresh prompt (→ `dalton-creating-experiments`) |
 
 ### Step 3 — re-prompt
 
-Apply the four golden prompting rules (specific / positive / device-scoped / one change per prompt). Full guide in `../../references/prompting-best-practices.md`. The editing-specific cheat sheet below is for the common vague re-prompts users send.
+Apply the four golden prompting rules (specific / positive / device-scoped / one change per prompt). Full guide in `../references/prompting-best-practices.md`. The editing-specific cheat sheet below is for the common vague re-prompts users send.
 
 Generate.
 
@@ -97,7 +97,7 @@ When the user's re-prompt is vague, rewrite it before running:
 ## Common iteration traps
 
 - **Compound prompts.** "Shorten, change tone, and center on mobile" — split into three edits.
-- **Re-prompting a dynamic element.** If the element is a price, inventory count, or a size selector, no prompt will work. Route to `creating-experiments` (change element) or `dalton-split-tests`.
+- **Re-prompting a dynamic element.** If the element is a price, inventory count, or a size selector, no prompt will work. Route to `dalton-creating-experiments` (change element) or `dalton-split-tests`.
 - **Drifting off-brand repeatedly.** The fix is upstream, in Brand Intelligence, not in every new prompt.
 - **Ignoring mobile.** Re-prompted a desktop fix and declared success without checking mobile.
 - **Using negative prompts.** "Don't do X" works worse than "Do Y". Always rewrite.
@@ -118,8 +118,8 @@ When the user's re-prompt is vague, rewrite it before running:
 
 ## When to hand off to another skill
 
-- User wants a fundamentally different variant, not a revision → `creating-experiments`
-- User wants to duplicate the (revised) variant across other pages → `copying-experiments`
+- User wants a fundamentally different variant, not a revision → `dalton-creating-experiments`
+- User wants to duplicate the (revised) variant across other pages → `dalton-copying-experiments`
 - Edit is doomed because the underlying page needs to be a different page → `dalton-split-tests`
 - Prompt attempts keep failing or the element won't target → `dalton-help`
 - Variant is ready to go live → `dalton-setup` Phase 4 / user-initiated launch

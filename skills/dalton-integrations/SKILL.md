@@ -1,6 +1,6 @@
 ---
 name: dalton-integrations
-description: Connect Dalton to external platforms — Google Analytics (GA4), Google Ads, Meta Ads. Use this skill as the entry point whenever someone wants to wire Dalton up to analytics or ad platforms, pull GA4 events as conversion goals, compare Optimized vs Control audiences in GA4 reports, or personalize landing pages based on which ad a visitor clicked. Routes to google-analytics, google-ads, or meta-ads sub-skills. Also covers the big picture: what each integration unlocks and which one to reach for.
+description: Connect Dalton to external platforms — Google Analytics (GA4), Google Ads, Meta Ads. Use this skill as the entry point whenever someone wants to wire Dalton up to analytics or ad platforms, pull GA4 events as conversion goals, compare Optimized vs Control audiences in GA4 reports, or personalize landing pages based on which ad a visitor clicked. Routes to dalton-google-analytics, dalton-google-ads, or dalton-meta-ads sub-skills. Also covers the big picture: what each integration unlocks and which one to reach for.
 ---
 
 # Dalton integrations (family root)
@@ -23,9 +23,9 @@ GA4 is the most common integration and the one most users should set up first �
 
 | User is asking about | Use |
 |---|---|
-| Connecting GA4, using GA4 events as goals, creating GA4 audiences for Optimized vs Control, comparing groups in GA4 reports | `google-analytics` |
-| Connecting Google Ads, setting up tracking template at account level, campaign/ad set/creative-level personalization for Google Ads traffic | `google-ads` |
-| Connecting Meta Ads, setting up per-ad URL parameters (Meta doesn't support account-level tracking templates), personalization for Meta ad traffic | `meta-ads` |
+| Connecting GA4, using GA4 events as goals, creating GA4 audiences for Optimized vs Control, comparing groups in GA4 reports | `dalton-google-analytics` |
+| Connecting Google Ads, setting up tracking template at account level, campaign/ad set/creative-level personalization for Google Ads traffic | `dalton-google-ads` |
+| Connecting Meta Ads, setting up per-ad URL parameters (Meta doesn't support account-level tracking templates), personalization for Meta ad traffic | `dalton-meta-ads` |
 
 ## How ad-to-page personalization works (shared concept)
 
@@ -46,7 +46,7 @@ Google Ads and Meta Ads both feed into the same personalization system. The flow
 - **Google Ads** supports an **account-level tracking template** — set it once, all ads inherit the required URL parameters.
 - **Meta Ads** requires **per-ad URL parameters** — Meta doesn't support account-level tracking templates. Tedious but one-time-per-ad.
 
-The `google-ads` and `meta-ads` sub-skills cover the exact parameter format for each.
+The `dalton-google-ads` and `dalton-meta-ads` sub-skills cover the exact parameter format for each.
 
 ## Canonical parameter structure (both platforms)
 
@@ -69,8 +69,8 @@ Integrations touch third-party accounts (Google, Meta). Before connecting:
 ## When to hand off to another skill
 
 - Dalton snippet isn't installed on the target pages → `dalton-script-install`
-- User wants GA4 event as a conversion goal → the `google-analytics` sub-skill will cover both connecting AND using events as goals; if goal-setup is the specific question → `dalton-page-goals`
-- User hasn't created the experiments they want to personalize → `creating-experiments`
+- User wants GA4 event as a conversion goal → the `dalton-google-analytics` sub-skill will cover both connecting AND using events as goals; if goal-setup is the specific question → `dalton-page-goals`
+- User hasn't created the experiments they want to personalize → `dalton-creating-experiments`
 - Integration seems connected but data isn't flowing → `dalton-help`
 
 ## Canonical sources

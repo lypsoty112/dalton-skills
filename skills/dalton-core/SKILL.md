@@ -22,7 +22,7 @@ Router for the core skill family. Covers everything from "what is this product" 
 
 `dalton-core` owns the **foundational layer**: product knowledge, installation, onboarding, and the configuration steps (goals, split-test setup) that must be in place before the editor or integrations are useful. It does not own variant creation (→ `dalton-editor`), analytics/ad wiring (→ `dalton-integrations`), or data interpretation (→ `dalton-data`).
 
-When a user request spans this boundary — e.g., "set up my goal and then create my first experiment" — handle the core phase first (`dalton-page-goals`), confirm it's done, then hand off to `creating-experiments`.
+When a user request spans this boundary — e.g., "set up my goal and then create my first experiment" — handle the core phase first (`dalton-page-goals`), confirm it's done, then hand off to `dalton-creating-experiments`.
 
 ## When to hand off to another family
 

@@ -1,5 +1,5 @@
 ---
-name: google-ads
+name: dalton-google-ads
 description: Connect Google Ads to Dalton for ad-to-page personalization — landing pages that match the specific Google Ads campaign / ad group / creative a visitor clicked. Covers setting up the account-level tracking template so all ads carry the required URL parameters (campaign_id / adset_id / creative_id), connecting the Google Ads account in Dalton, choosing a personalization level, and generating personalized page variants. Use this skill whenever someone asks about Google Ads integration, ad personalization, matching landing pages to ad creatives, Quality Score improvements via message-match, tracking template setup, or wiring Google Ads into Dalton. Feature is Beta.
 ---
 
@@ -111,7 +111,7 @@ Dalton groups similar ads, extracts messaging, and produces variant drafts per g
 - Read AI output for accuracy and brand fit.
 - Approve per-variant. Launch on explicit user confirmation.
 
-Dalton's **Results Dashboard** + the `google-analytics` audiences handle measurement.
+Dalton's **Results Dashboard** + the `dalton-google-analytics` audiences handle measurement.
 
 ## Dalton verifies tracking automatically
 
@@ -144,9 +144,9 @@ This integration touches the user's Google Ads account (a live ad spend account)
 ## When to hand off to another skill
 
 - Landing page isn't installed with Dalton → `dalton-script-install`
-- User wants to compare paid-traffic lift in GA4 → `google-analytics`
-- User also wants Meta Ads personalization → `meta-ads` (different tracking setup — per-ad URL, not template)
-- User wants to tweak the generated variants → `editing-experiments`
+- User wants to compare paid-traffic lift in GA4 → `dalton-google-analytics`
+- User also wants Meta Ads personalization → `dalton-meta-ads` (different tracking setup — per-ad URL, not template)
+- User wants to tweak the generated variants → `dalton-editing-experiments`
 - Integration shows connected but variants aren't serving → `dalton-help`
 
 ## Canonical sources

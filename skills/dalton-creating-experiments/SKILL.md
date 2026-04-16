@@ -1,11 +1,13 @@
 ---
-name: creating-experiments
-description: Generate a new variant in the Dalton editor — via accepting an AI Insight, picking a template from the library, or writing a custom prompt. Use this skill when the specific task is *generating the variant itself* — clicking Insights, using the template library, writing the prompt, previewing the result. Trigger on "create a variant", "write a prompt", "accept this insight", "use a template", "add a new element / banner / badge", "change this headline / CTA". This skill does NOT cover the setup sequence (→ `dalton-setup` if they're onboarding end-to-end), conversion goal selection (→ `dalton-page-goals`), or revising an already-generated variant (→ `editing-experiments`).
+name: dalton-creating-experiments
+description: Generate a new variant in the Dalton editor — via accepting an AI Insight, picking a template from the library, or writing a custom prompt. Use this skill when the specific task is *generating the variant itself* — clicking Insights, using the template library, writing the prompt, previewing the result. Trigger on "create a variant", "write a prompt", "accept this insight", "use a template", "add a new element / banner / badge", "change this headline / CTA". This skill does NOT cover the setup sequence (→ `dalton-setup` if they're onboarding end-to-end), conversion goal selection (→ `dalton-page-goals`), or revising an already-generated variant (→ `dalton-editing-experiments`).
 ---
 
 # Creating Dalton experiments
 
 Use this skill to produce new variants. The job has three entry points (Insight / template / prompt) and one shared output: a variant the user reviews and approves before launch.
+
+**You don't need to wait for one experiment to finish generating before starting another.** The editor supports creating multiple experiments in parallel — start a second prompt while the first is still rendering, or open a second page's editor in a new tab. Each experiment generates independently.
 
 ## The editor URL
 
@@ -13,7 +15,7 @@ Use this skill to produce new variants. The job has three entry points (Insight 
 https://platform.getdalton.com/admin/[customer_id]/page?page=[page_id]&tab=overview&edit=true
 ```
 
-Use this for every operator-mode step below. If you don't know the IDs, go to `https://platform.getdalton.com`, pick the page from the Pages list, and read them out of the URL. Full UI map: `../../references/platform-urls.md`.
+Use this for every operator-mode step below. If you don't know the IDs, go to `https://platform.getdalton.com`, pick the page from the Pages list, and read them out of the URL. Full UI map: `../references/platform-urls.md`.
 
 ## The prompt box and Actions button
 
@@ -79,12 +81,12 @@ If the page doesn't have a `page_id` yet — because it hasn't been added to Dal
 1. Preview the variant on **desktop**. Check that the change renders and nothing on the page looks broken.
 2. Preview on **mobile**. This is where most surprises live — the AI optimizes for whichever viewport was active when the prompt ran.
 3. Read the generated content for **accuracy** (claims, numbers), **brand fit** (tone matches), and **compliance** (no misleading promises).
-4. If the variant is off, re-prompt (→ `editing-experiments`) or delete and try a different entry point.
+4. If the variant is off, re-prompt (→ `dalton-editing-experiments`) or delete and try a different entry point.
 5. Save. Do not launch yet — launch is the pre-launch QA skill's job (`dalton-setup` Phase 4 or the user's explicit "launch it").
 
 ## The golden prompting rules (summary)
 
-Four rules underpin every good prompt. Condensed version — full guide with tables, examples, and fallback recipes is in `../../references/prompting-best-practices.md`.
+Four rules underpin every good prompt. Condensed version — full guide with tables, examples, and fallback recipes is in `../references/prompting-best-practices.md`.
 
 1. **Be specific.** "Make it shorter" → "Make this one sentence."
 2. **Positive instructions, not negative.** "Don't be salesy" → "Use a conversational, helpful tone."
@@ -95,11 +97,11 @@ If the user's initial prompt is vague, rewrite it before feeding it to the edito
 
 ## Multi-page experiments — check before you build
 
-If this experiment needs to run across multiple pages (all PDPs, all blog posts, etc.), read `copying-experiments` **before** building the variant. The critical constraint: **the element you're testing must exist identically on every matched page.** Product titles, prices, and page-specific content fail this check — they change per page and the variant would overwrite them all. Build the variant only after confirming the element is pattern-safe.
+If this experiment needs to run across multiple pages (all PDPs, all blog posts, etc.), read `dalton-copying-experiments` **before** building the variant. The critical constraint: **the element you're testing must exist identically on every matched page.** Product titles, prices, and page-specific content fail this check — they change per page and the variant would overwrite them all. Build the variant only after confirming the element is pattern-safe.
 
 ## What can't be tested
 
-Some things are outside the editor's reach: dynamic content (prices, inventory), images, videos, navigation menus, forms, animations, elements inside iframes or shadow DOM. For any of those, route to `dalton-split-tests`. See `../../references/prompting-best-practices.md` for the full "prompts that don't work" list and the fallback recipe.
+Some things are outside the editor's reach: dynamic content (prices, inventory), images, videos, navigation menus, forms, animations, elements inside iframes or shadow DOM. For any of those, route to `dalton-split-tests`. See `../references/prompting-best-practices.md` for the full "prompts that don't work" list and the fallback recipe.
 
 ## Brand Intelligence
 
@@ -114,7 +116,7 @@ If variants consistently come out off-brand or over-promising, tell the user to 
 
 ## When prompts keep failing
 
-See the "When prompts repeatedly fail" section in `../../references/prompting-best-practices.md` — covers dynamic elements, iframe / shadow DOM, parent-element fallback, and prompt simplification.
+See the "When prompts repeatedly fail" section in `../references/prompting-best-practices.md` — covers dynamic elements, iframe / shadow DOM, parent-element fallback, and prompt simplification.
 
 If those don't resolve it, route to `dalton-help`.
 
@@ -134,8 +136,8 @@ If those don't resolve it, route to `dalton-help`.
 
 ## When to hand off to another skill
 
-- User wants to revise an already-generated variant → `editing-experiments`
-- User wants to duplicate this variant to other pages → `copying-experiments`
+- User wants to revise an already-generated variant → `dalton-editing-experiments`
+- User wants to duplicate this variant to other pages → `dalton-copying-experiments`
 - Change requires a whole different page (images, heavy redesign) → `dalton-split-tests`
 - Pre-launch QA and actual launch → `dalton-setup` Phase 4
 - Something is failing or the element won't target → `dalton-help`

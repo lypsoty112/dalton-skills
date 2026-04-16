@@ -6,34 +6,30 @@ Skill library for AI agents operating the [Dalton](https://getdalton.com) platfo
 
 ```
 skills/
-├── dalton-core/           # Product knowledge, install, onboarding, goals, split tests, troubleshooting
-│   ├── SKILL.md           # Router — start here for any core question
-│   ├── dalton-info/       # What Dalton is, how it works, pricing, fit
-│   ├── dalton-script-install/  # Snippet install across all platforms
-│   ├── dalton-setup/      # End-to-end onboarding orchestrator
-│   ├── dalton-page-goals/ # Conversion goal selection and configuration
-│   ├── dalton-split-tests/# URL split tests (full-page comparisons)
-│   └── dalton-help/       # Troubleshooting + support escalation
+├── dalton-core/                    # Router — foundational questions
+├── dalton-info/                    # What Dalton is, how it works, pricing, fit
+├── dalton-script-install/          # Snippet install across all platforms
+├── dalton-setup/                   # End-to-end onboarding orchestrator
+├── dalton-page-goals/              # Conversion goal selection and configuration
+├── dalton-split-tests/             # URL split tests (full-page comparisons)
+├── dalton-help/                    # Troubleshooting + support escalation
 │
-├── dalton-editor/         # Visual Editor — create, edit, copy experiments
-│   ├── SKILL.md           # Router + shared editor concepts
-│   ├── creating-experiments/
-│   ├── editing-experiments/
-│   └── copying-experiments/
+├── dalton-editor/                  # Router — Visual Editor concepts
+├── dalton-creating-experiments/    # New variants via Insights, templates, prompts
+├── dalton-editing-experiments/     # Revise existing variants
+├── dalton-copying-experiments/     # Duplicate across pages / multi-page wildcard
 │
-├── dalton-integrations/   # External platform connections
-│   ├── SKILL.md           # Router + shared ad-personalization concepts
-│   ├── google-analytics/
-│   ├── google-ads/
-│   └── meta-ads/
+├── dalton-integrations/            # Router — external platform connections
+├── dalton-google-analytics/        # GA4 integration + audience setup
+├── dalton-google-ads/              # Google Ads tracking + personalization
+├── dalton-meta-ads/                # Meta Ads tracking + personalization
 │
-├── dalton-data/           # Experiment data, results, privacy
-│   ├── SKILL.md           # Router
-│   ├── results-interpretation/
-│   └── privacy-and-storage/
+├── dalton-data/                    # Router — experiment data & privacy
+├── dalton-results-interpretation/  # Reading the results dashboard
+├── dalton-privacy-and-storage/     # GDPR, cookies, data residency
 │
-└── references/            # Shared reference docs (not skills)
-    ├── platform-urls.md   # Live URL/UI map, verified 2026-04-16
+└── references/                     # Shared reference docs (not skills)
+    ├── platform-urls.md            # Live URL/UI map, verified 2026-04-16
     └── prompting-best-practices.md
 ```
 
@@ -55,8 +51,8 @@ Source of truth for product facts: `~/Documents/dalton/dalton-docs/`.
 
 ## Adding a new skill
 
-1. Create `skills/<family>/<skill-name>/SKILL.md`.
-2. Add frontmatter: `name`, `description` (written as a triggering signal — when to use AND when not to).
+1. Create `skills/dalton-<skill-name>/SKILL.md` (all skills live at the same flat depth).
+2. Add frontmatter: `name: dalton-<skill-name>`, `description` (written as a triggering signal — when to use AND when not to).
 3. Follow the operator-mode pattern: default path assumes browser tools; manual walkthrough is the fallback.
-4. Add routing rows to the family's `SKILL.md` router.
+4. Add routing rows to the relevant family router SKILL.md.
 5. Update `to-do.md`.

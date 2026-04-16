@@ -1,6 +1,6 @@
 ---
 name: dalton-editor
-description: Work in the Dalton Visual Editor — create, edit, or copy experiments and variants. Use this skill as the entry point whenever someone wants to build, modify, duplicate, re-prompt, or iterate on a Dalton experiment. Routes to the right sub-skill: creating-experiments (new variants, AI prompts, templates, Actions menu), editing-experiments (revise existing variants), copying-experiments (duplicate across pages / multi-page). Also covers the editor's core concepts: the Visual Editor URL, the "What would you like to test?" prompt box, experiment statuses (Live / Paused / Draft), Brand Intelligence, can/can't test.
+description: Work in the Dalton Visual Editor — create, edit, or copy experiments and variants. Use this skill as the entry point whenever someone wants to build, modify, duplicate, re-prompt, or iterate on a Dalton experiment. Routes to the right sub-skill: dalton-creating-experiments (new variants, AI prompts, templates, Actions menu), dalton-editing-experiments (revise existing variants), dalton-copying-experiments (duplicate across pages / multi-page). Also covers the editor's core concepts: the Visual Editor URL, the "What would you like to test?" prompt box, experiment statuses (Live / Paused / Draft), Brand Intelligence, can/can't test.
 ---
 
 # Dalton editor (family root)
@@ -38,9 +38,9 @@ When `edit=true`:
 
 | User is doing | Use |
 |---|---|
-| Building a **new** variant from scratch — accepting an Insight, using a template, writing a prompt | `creating-experiments` |
-| Iterating on an **existing** variant — re-prompting, tweaking copy, fixing mobile | `editing-experiments` |
-| **Duplicating** an experiment across pages or via a URL wildcard (PDPs, category pages, blog posts) | `copying-experiments` |
+| Building a **new** variant from scratch — accepting an Insight, using a template, writing a prompt | `dalton-creating-experiments` |
+| Iterating on an **existing** variant — re-prompting, tweaking copy, fixing mobile | `dalton-editing-experiments` |
+| **Duplicating** an experiment across pages or via a URL wildcard (PDPs, category pages, blog posts) | `dalton-copying-experiments` |
 | Comparing **completely different page designs** (full redesign) | `dalton-split-tests` — NOT an editor skill |
 
 If the request straddles two sub-skills ("copy this across all PDPs and tweak the CTA on mobile"), handle in two phases: copy first, then edit.
@@ -64,6 +64,10 @@ For the "can't" list, route to `dalton-split-tests` (full alternate page) or rec
 ## The golden prompting rule
 
 **Be specific. One change per prompt. Use positive instructions.** Full guide in `../references/prompting-best-practices.md`. Most-common failure: users writing "make it better" and getting bland output — push for specificity early.
+
+## Creating multiple experiments in parallel
+
+You don't need to wait for one experiment to finish generating before starting another. The editor supports creating experiments in parallel — start a second prompt while the first is still rendering, or open a second page's editor in a new tab. Each experiment generates independently.
 
 ## Experiment statuses
 
@@ -90,7 +94,7 @@ Editor output eventually goes live. Always:
 - User needs to set / change the conversion goal → `dalton-page-goals`
 - Full-page vs full-page comparison → `dalton-split-tests`
 - Something's broken or stuck → `dalton-help`
-- User asks about results, significance, learning phase → `results-interpretation`
+- User asks about results, significance, learning phase → `dalton-results-interpretation`
 
 ## Canonical sources
 
